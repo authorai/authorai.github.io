@@ -21,8 +21,8 @@
 title: AuthorAI
 email: authorai.org@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  At AuthorAI we want to reimagine the authoring experience powered by AI. 
-  We want to explore how state of the art in AI can evolve the authoring flow
+  At AuthorAI we are reimagining the creative authoring flow powered by AI. 
+  We are exploring how state of the art in AI can enhance the authoring flow
   as it applies to creating apps, books, blogs, sites, data, designs, reports, and more.
 
 baseurl: "" # the subpath of your site, e.g. /blog
