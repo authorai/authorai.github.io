@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2022-12-24T03:22:12-08:00</updated><id>/feed.xml</id><title type="html">AuthorAI</title><subtitle>At AuthorAI we want to reimagine the authoring experience powered by AI.  We want to explore how state of the art in AI can evolve the authoring flow as it applies to creating apps, books, blogs, sites, data, designs, reports, and more.</subtitle><entry><title type="html">AuthorAI Blogger for Jekyll Static Site Generator Automation</title><link href="/ai/jekyll/transformers/2022/12/23/authorai-blogger-for-jekyll-static-site-generator-automation.html" rel="alternate" type="text/html" title="AuthorAI Blogger for Jekyll Static Site Generator Automation" /><published>2022-12-23T00:00:00-08:00</published><updated>2022-12-23T00:00:00-08:00</updated><id>/ai/jekyll/transformers/2022/12/23/authorai-blogger-for-jekyll-static-site-generator-automation</id><content type="html" xml:base="/ai/jekyll/transformers/2022/12/23/authorai-blogger-for-jekyll-static-site-generator-automation.html"><![CDATA[<p><img src="/assets/img/web-design-glass-on-rainy-city 20221223175851.png" alt="Feature Image" /></p>
+
+<p>Writing high quality blog posts is a difficult and time consuming task. It requires a great deal of effort and dedication to create content that is both interesting and informative. It is not enough to simply write a few sentences and post them online; the content must be well-researched, well-written, and engaging. It also requires a good understanding of the topic, as well as the ability to craft a compelling narrative. Additionally, the blog post must be optimized for search engines, which requires an understanding of SEO principles. Finally, the post must be edited and proofread to ensure accuracy and clarity. All of these steps take time and effort, but the end result is worth it.</p>
+
+<p>We created AuthorAI to help the bloggers, the writers, and the authors to <strong>enhance the creative authoring flow, while leaving the plumbing to the AI</strong>. AuthorAI Blogger API was used to generate most of the content for this post. A human author provided the <em>prompts</em> to guide the AI to generate the content. Then based on the content generated the author could research the topic, structure the content appropriately, and generate the post. The post was then edited to add interleaving content to support the intended objective. The human author used a Jupyter Notebook to ideate, research, structure, and generate the content starting with following import statement. They go on to create a blog post object. Next setup the concept or idea which we want to describe as the introductory topic you just read. Then call <code class="language-plaintext highlighter-rouge">blogger.describe_concept()</code> API to generate the topic with appropriate grade level English. Finally, they set the topic in the blog post object for publishing.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">authorai</span> <span class="kn">import</span> <span class="n">blogger</span>
+
+<span class="n">post</span> <span class="o">=</span> <span class="n">blogger</span><span class="p">.</span><span class="n">BlogPost</span><span class="p">()</span>
+
+<span class="n">concept</span> <span class="o">=</span> <span class="s">'Writing high quality blog posts is time consuming and hard work'</span>
+<span class="n">topic</span> <span class="o">=</span> <span class="n">blogger</span><span class="p">.</span><span class="n">describe_concept</span><span class="p">(</span><span class="n">concept</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="n">grade</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">post</span><span class="p">.</span><span class="n">set_topic</span><span class="p">(</span><span class="n">topic</span><span class="p">)</span>
+</code></pre></div></div>
+
+<!--more-->
+<p>Before we step into more AuthorAI code, let us continue to read why integrating AuthorAI for Static Website Generators like Jekyll is important. The the words of AI…</p>
+
+<h2 id="static-website-generators-gaining-popularity">Static website generators gaining popularity</h2>
+<p>Static website generators are gaining popularity as a way to quickly and easily create websites. These generators allow users to create websites without having to write any code. Instead, they use a template-based system to create a website that looks professional and is easy to maintain.</p>
+
+<p>Static website generators are becoming increasingly popular due to their ease of use and the fact that they are more secure than traditional websites. With a static website, all of the content is stored on the server, meaning that it is not vulnerable to malicious attacks. This makes it much more secure than a traditional website, which can be vulnerable to hackers.</p>
+
+<p>Static website generators also offer a number of advantages over traditional websites. For example, they are much faster to create and maintain. This is because they do not require any coding or programming knowledge. Instead, users can simply select a template and fill in the content. This makes it much easier for users to create a website quickly and easily.</p>
+
+<p>In addition, static website generators are much more cost-effective than traditional websites. This is because they do not require any hosting fees or other costs associated with traditional websites. This makes them an attractive option for those who are looking to create a website on a budget.</p>
+
+<p>Finally, static website generators are becoming increasingly popular due to their ability to create websites that are optimized for search engines. This means that they can help to improve the visibility of a website in search engine results. This can be beneficial for businesses, as it can help to increase their online presence and attract more customers.</p>
+
+<p>Overall, static website generators are becoming increasingly popular due to their ease of use, security, cost-effectiveness, and ability to create websites that are optimized for search engines. This makes them an attractive option for those who are looking to create a website quickly and easily.</p>
+
+<p>The above section was generated by first setting the title. Then using AuthorAI Blogger API we could generate the above text. Finally, we added the section to our blog post object for further processing.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">title</span> <span class="o">=</span> <span class="s">'Static website generators gaining popularity'</span>
+<span class="n">section</span> <span class="o">=</span> <span class="n">blogger</span><span class="p">.</span><span class="n">describe_concept</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="n">grade</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">post</span><span class="p">.</span><span class="n">set_sections</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">section</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Similarly following section was created. Let us learn more about Jekyll before discussing how AuthorAI integrates with Jekyll.</p>
+
+<h2 id="jekyll-static-website-generator-features">Jekyll static website generator features</h2>
+<p>Jekyll is a static website generator that allows users to quickly and easily create websites without the need for complex coding. It is a powerful tool that can be used to create websites with a variety of features.</p>
+
+<p>Jekyll is built on the Ruby programming language and is designed to be simple and straightforward to use. It is a command line tool that can be used to generate HTML files from Markdown files. This allows users to quickly and easily create websites without having to write any code.</p>
+
+<p>Jekyll also has a number of features that make it a great choice for creating websites. It has built-in support for Sass and CoffeeScript, which allow users to quickly and easily create dynamic websites. It also has support for Liquid templating, which allows users to create dynamic content without having to write any code.</p>
+
+<p>Jekyll also has a number of other features that make it a great choice for creating websites. It has built-in support for RSS feeds, which allows users to easily syndicate their content. It also has support for pagination, which allows users to easily create multiple pages for their website.</p>
+
+<p>Finally, Jekyll has a number of plugins that can be used to extend its functionality. These plugins allow users to add additional features to their websites, such as search functionality, social media integration, and more.</p>
+
+<p>To integrate AuthorAI with Jekyll site we initialize a <code class="language-plaintext highlighter-rouge">JekyllSite</code> object and identify the Jekyll managed static website folder. Later releases of AuthorAI will parse an existing Jekyll site for config data and content for further automation. For now, this is a good enough start.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">authorai_site</span> <span class="o">=</span> <span class="n">blogger</span><span class="p">.</span><span class="n">JekyllSite</span><span class="p">()</span>
+<span class="n">authorai_site</span><span class="p">.</span><span class="n">set_site_folder</span><span class="p">(</span><span class="s">'../authorai-site'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>In fact, we can use AuthorAI to generate code for creating dynamic Jekyll apps using the Liquid Template Markup Language. Let us learn more about Liquid before jumping into some AuthorAI code to do just that.</p>
+
+<h2 id="liquid-template-language-for-jekyll">Liquid template language for Jekyll</h2>
+<p>Liquid template language for Jekyll is a powerful and versatile tool for creating dynamic websites. It is a templating language that allows developers to create custom HTML and CSS code for their websites. It is designed to be easy to use and understand, and is used in conjunction with the popular Jekyll static site generator. Liquid is written in Ruby and is based on the Liquid Markup language. It allows developers to create custom HTML and CSS code for their websites, as well as to create dynamic content such as blog posts, product pages, and more. Liquid also allows developers to create custom tags and filters, which can be used to manipulate data and create custom content.</p>
+
+<p>Following code example was generated by AuthorAI. The human author first identifies the language to generate the code. Them defines the use case to be implemented by this code. This is then input to <code class="language-plaintext highlighter-rouge">blogger.generate_code()</code> API for doing the magic.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">language</span><span class="o">=</span><span class="s">'HTML page with liquid template language'</span>
+<span class="n">usecase</span> <span class="o">=</span> <span class="s">'todo list with add, delete, and complete features'</span>
+<span class="n">caption</span><span class="p">,</span> <span class="n">snippet</span> <span class="o">=</span> <span class="n">blogger</span><span class="p">.</span><span class="n">generate_code</span><span class="p">(</span>
+  <span class="n">language</span><span class="o">=</span><span class="n">language</span><span class="p">,</span> <span class="n">usecase</span><span class="o">=</span><span class="n">usecase</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">post</span><span class="p">.</span><span class="n">set_snippets</span><span class="p">(</span><span class="n">caption</span><span class="p">,</span> <span class="n">snippet</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="code-example">Code Example</h2>
+
+<p><em>HTML page with liquid template language implementing todo list with add, delete, and complete features</em></p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+  <span class="nt">&lt;title&gt;</span>Todo List with Liquid Template Language<span class="nt">&lt;/title&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+  {% assign todos = 
+    “Buy groceries, take out the trash, 
+      clean the kitchen, mow the lawn” | split: ‘,’ %}
+
+  <span class="nt">&lt;div&gt;</span>
+    <span class="nt">&lt;ul&gt;</span>
+      {% for todo in todos %}
+      <span class="nt">&lt;li&gt;</span>{{ todo }}
+        <span class="nt">&lt;a</span> <span class="na">onclick=</span><span class="s">"completeTodo({{ forloop.index }})"</span><span class="nt">&gt;</span>Complete<span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">onclick=</span><span class="s">"deleteTodo({{ forloop.index }})"</span><span class="nt">&gt;</span>Delete<span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;/li&gt;</span>
+      {% endfor %}
+    <span class="nt">&lt;/ul&gt;</span>
+
+    <span class="nt">&lt;button</span> <span class="na">onclick=</span><span class="s">"addTodo()"</span><span class="nt">&gt;</span>Add Todo<span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+
+  <span class="nt">&lt;script&gt;</span>
+  <span class="kd">let</span> <span class="nx">todos</span> <span class="o">=</span> <span class="p">{</span><span class="o">%</span> <span class="k">for</span> <span class="nx">todo</span> <span class="k">in</span> <span class="nx">todos</span> <span class="o">%</span><span class="p">}</span>
+        <span class="dl">"</span><span class="s2">{{todo}}</span><span class="dl">"</span>
+      <span class="p">{</span><span class="o">%</span> <span class="nx">unless</span> <span class="nx">forloop</span><span class="p">.</span><span class="nx">last</span>  <span class="o">%</span><span class="p">},</span>
+      <span class="p">{</span><span class="o">%</span> <span class="nx">endunless</span> <span class="o">%</span><span class="p">}</span>
+    <span class="p">{</span><span class="o">%</span> <span class="nx">endfor</span> <span class="o">%</span><span class="p">};</span>
+
+  <span class="kd">const</span> <span class="nx">deleteTodo</span> <span class="o">=</span> <span class="p">(</span><span class="nx">index</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="nx">todos</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">todos</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="kd">const</span> <span class="nx">completeTodo</span> <span class="o">=</span> <span class="p">(</span><span class="nx">index</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="kd">let</span> <span class="nx">todo</span> <span class="o">=</span> <span class="nx">todos</span><span class="p">[</span><span class="nx">index</span><span class="p">];</span>
+      <span class="nx">todos</span><span class="p">[</span><span class="nx">index</span><span class="p">]</span> <span class="o">=</span> <span class="s2">`&lt;strike&gt;</span><span class="p">${</span><span class="nx">todo</span><span class="p">}</span><span class="s2">&lt;/strike&gt;`</span><span class="p">;</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">todos</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="kd">const</span> <span class="nx">addTodo</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="kd">let</span> <span class="nx">newTodo</span> <span class="o">=</span> <span class="nx">prompt</span><span class="p">(</span><span class="dl">'</span><span class="s1">Enter a new todo</span><span class="dl">'</span><span class="p">);</span>
+      <span class="nx">todos</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">newTodo</span><span class="p">);</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">todos</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p>Using AuthorAI Blogger we can also add more features to our Jekyll blog like Frequently Asked Questions.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">question</span> <span class="o">=</span> <span class="s">'What are the well know blogs or static websites built using Jekyll?'</span>
+<span class="n">post</span><span class="p">.</span><span class="n">set_qna</span><span class="p">(</span><span class="n">question</span><span class="p">,</span> <span class="n">blogger</span><span class="p">.</span><span class="n">qna</span><span class="p">(</span><span class="n">question</span><span class="p">))</span>
+</code></pre></div></div>
+
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+
+<h3 id="what-are-the-well-know-blogs-or-static-websites-built-using-jekyll">What are the well know blogs or static websites built using Jekyll?</h3>
+<p>Some well-known blogs and static websites built using Jekyll include GitHub Pages, The Jekyll Theme Showcase, Smashing Magazine, and The Changelog.</p>
+
+<h3 id="how-popular-is-jekyll-static-site-generator">How popular is Jekyll static site generator?</h3>
+<p>Jekyll is a very popular static site generator. According to BuiltWith, Jekyll is used on over 1.2 million websites.</p>
+
+<h3 id="which-companies-use-jekyll-static-site-generator">Which companies use Jekyll static site generator?</h3>
+<p>Some of the companies that use Jekyll static site generator include GitHub, Shopify, Airbnb, Netflix, and Microsoft.</p>]]></content><author><name></name></author><category term="AI" /><category term="Jekyll" /><category term="transformers" /><summary type="html"><![CDATA[Writing high quality blog posts is a difficult and time consuming task. It requires a great deal of effort and dedication to create content that is both interesting and informative. It is not enough to simply write a few sentences and post them online; the content must be well-researched, well-written, and engaging. It also requires a good understanding of the topic, as well as the ability to craft a compelling narrative. Additionally, the blog post must be optimized for search engines, which requires an understanding of SEO principles. Finally, the post must be edited and proofread to ensure accuracy and clarity. All of these steps take time and effort, but the end result is worth it. We created AuthorAI to help the bloggers, the writers, and the authors to enhance the creative authoring flow, while leaving the plumbing to the AI. AuthorAI Blogger API was used to generate most of the content for this post. A human author provided the prompts to guide the AI to generate the content. Then based on the content generated the author could research the topic, structure the content appropriately, and generate the post. The post was then edited to add interleaving content to support the intended objective. The human author used a Jupyter Notebook to ideate, research, structure, and generate the content starting with following import statement. They go on to create a blog post object. Next setup the concept or idea which we want to describe as the introductory topic you just read. Then call blogger.describe_concept() API to generate the topic with appropriate grade level English. Finally, they set the topic in the blog post object for publishing. from authorai import blogger post = blogger.BlogPost() concept = 'Writing high quality blog posts is time consuming and hard work' topic = blogger.describe_concept(concept, 150, grade=10) post.set_topic(topic)]]></summary></entry></feed>
