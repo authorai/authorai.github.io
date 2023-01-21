@@ -5,6 +5,8 @@
 layout: home
 ---
 
+![Monetize AI that runs ChatGPT for Authors](/assets/img/monetize-authors.png)
+
 **Enhance your creative authoring flow, leaving the plumbing to AuthorAI**
 
 At AuthorAI we are reimagining the authoring experience powered by AI. We are exploring how state of the art in AI can enhance the creative authoring flow as it applies to creating apps, books, blogs, sites, data, designs, reports, etc.
